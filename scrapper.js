@@ -73,14 +73,13 @@ async function blinkitSearch() {
         }
       });
 
-      // Check for a "Load More" button and click it
       const loadMoreButton = await page.$('button[aria-label="Load more"]');
       if (loadMoreButton) {
         console.log('Loading more results...');
         await loadMoreButton.click();
-        await page.waitForTimeout(2000); // Wait for new results to load
+        await page.waitForTimeout(2000); 
       } else {
-        break; // Exit loop if no more results
+        break; 
       }
     }
 
@@ -92,7 +91,7 @@ async function blinkitSearch() {
       console.log(JSON.stringify(results, null, 2)); // Pretty print the results as JSON
     }
 
-    return results; // Return the results as an array of objects
+    return results; 
   } catch (error) {
     console.error('Error:', error);
   } finally {
@@ -100,7 +99,7 @@ async function blinkitSearch() {
   }
 }
 
-// Helper function to ask the user for input
+
 function askUser(question) {
   const readline = require('readline');
   const rl = readline.createInterface({
@@ -114,5 +113,4 @@ function askUser(question) {
   }));
 }
 
-// Run the script
 blinkitSearch();
